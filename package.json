@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "ChatterBox integration package",
 	"main": "index.js",
+	"types": "index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/OverQuotaAI/chatterbox.git"
