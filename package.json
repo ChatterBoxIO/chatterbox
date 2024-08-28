@@ -3,11 +3,19 @@
 	"version": "1.0.0",
 	"description": "ChatterBox integration package",
 	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/OverQuotaAI/chatterbox.git"
+	},
 	"dependencies": {
 		"axios": "^1.7.5",
 		"socket.io-client": "^4.7.5"
 	},
 	"keywords": ["ChatterBox", "zoom", "bot", "meeting", "transcript"],
 	"author": "Alex Tsimbalistov <alex@overquota.ai>",
-	"license": "MIT"
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/OverQuotaAI/chatterbox/issues"
+	},
+	"homepage": "https://github.com/OverQuotaAI/chatterbox#readme"
 }
