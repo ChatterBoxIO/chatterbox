@@ -14,14 +14,14 @@ The **ChatterBox Client** is an easy-to-use JavaScript/TypeScript package that a
 You can install the ChatterBox Client via npm:
 
 ```bash
-npm install @chatterbox/bot
+npm install @chatterboxio/bot
 ```
 
 ## Usage
 ### Basic Example
 To use the ChatterBox client, initialize it with your authorization token and deploy a bot to a meeting:
 ```javascript
-const { ChatterBox } = require('@chatterbox/bot');
+const { ChatterBox } = require('@chatterboxio/bot');
 
 const client = ChatterBox({
   authorizationToken: 'YOUR_ACCESS_TOKEN',

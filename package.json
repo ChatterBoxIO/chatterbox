@@ -1,5 +1,5 @@
 {
-	"name": "@chatterbox/bot",
+	"name": "@chatterboxio/bot",
 	"version": "1.0.0",
 	"description": "ChatterBox integration package",
 	"main": "index.js",
