@@ -1,0 +1,13 @@
+{
+	"name": "@chatterbox/bot",
+	"version": "1.0.0",
+	"description": "ChatterBox integration package",
+	"main": "index.js",
+	"dependencies": {
+		"axios": "^1.7.5",
+		"socket.io-client": "^4.7.5"
+	},
+	"keywords": ["ChatterBox", "zoom", "bot", "meeting", "transcript"],
+	"author": "Alex Tsimbalistov <alex@overquota.ai>",
+	"license": "MIT"
+}
