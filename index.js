@@ -8,7 +8,7 @@ class ChatterBox {
         }
 
         this.authorizationToken = config.authorizationToken;
-        this.apiBaseUrl = config.apiBaseUrl || 'https://zoom.chatter-box.io';
+        this.apiBaseUrl = config.apiBaseUrl || 'https://bot.chatter-box.io';
         this.wsBaseUrl = config.wsBaseUrl || 'https://ws.chatter-box.io';
     }
 
