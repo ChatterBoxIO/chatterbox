@@ -13,18 +13,22 @@ class ChatterBox {
     }
 
     async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox'}) {
-        if (!platform || !meeting_id) {
-            throw new Error('Platform and meeting ID are required');
-        }
-
-        const payload = {
-            platform,
-            meetingId: meeting_id,
-            meetingPassword: meeting_password || '',
-            botName: bot_name,
-        };
-
         try {
+            if (!platform || (typeof meeting_id !== 'string' && typeof meeting_id !== 'number') || String(meeting_id).trim() === '') {
+                throw new Error('Platform and meeting ID are required');
+            }
+
+            if (!this.authorizationToken) {
+                throw new Error('Authorization token is missing or invalid');
+            }
+
+            const payload = {
+                platform,
+                meetingId: String(meeting_id),
+                meetingPassword: meeting_password || '',
+                botName: bot_name,
+            };
+
             const response = await axios.post(`${this.apiBaseUrl}/join`, payload, {
                 headers: {
                     Authorization: `Bearer ${this.authorizationToken}`,
@@ -32,9 +36,15 @@ class ChatterBox {
             });
 
             const sessionId = response.data.sessionId;
-            return {id: sessionId};
+            return { id: sessionId };
         } catch (error) {
-            throw new Error(error.response?.data?.message || 'Failed to send bot to meeting');
+            if (error.response && error.response.data && error.response.data.message) {
+                throw new Error(error.response.data.message);
+            } else if (error.request) {
+                throw new Error('No response from server. Please check your network or try again later.');
+            } else {
+                throw new Error('Unexpected error: ' + error.message);
+            }
         }
     }
 

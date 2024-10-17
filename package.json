@@ -1,6 +1,6 @@
 {
 	"name": "@chatterboxio/bot",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "ChatterBox integration package",
 	"main": "index.js",
 	"types": "index.d.ts",
