@@ -1,10 +1,10 @@
 # ChatterBox Client
 
-The **ChatterBox Client** is an easy-to-use JavaScript/TypeScript package that allows you to integrate your applications with popular video conferencing platforms like Zoom. With this package, you can deploy bots to meetings, retrieve real-time meeting events, and access live transcripts with just a few lines of code.
+The **ChatterBox Client** is an easy-to-use JavaScript/TypeScript package that allows you to integrate your applications with popular video conferencing platforms. With this package, you can deploy bots to meetings, retrieve real-time meeting events, and access live transcripts with just a few lines of code.
 
 ## Features
 
-- **Send Bots to Meetings**: Easily deploy a bot to your video conferencing meetings (e.g., Zoom).
+- **Send Bots to Meetings**: Easily deploy a bot to your video conferencing meetings. Currently, Zoom and Google Meet are supported.
 - **Real-Time Transcription**: Receive live transcripts of ongoing meetings.
 - **WebSocket Integration**: Get real-time meeting events such as meeting start, finish, and transcript updates.
 - **Customizable**: Set your own bot names and optionally customize API and WebSocket base URLs.
@@ -56,8 +56,8 @@ async function startBot() {
 startBot();
 ```
 ### Parameters for sendBot
-- platform: The platform to send the bot to (e.g., 'zoom').
-- meeting_id: The ID of the meeting.
+- platform: The platform to send the bot to ('zoom', 'googlemeet').
+- meeting_id: The ID of the meeting (numeric ID for Zoom, 'xxx-xxx-xxx' for Google Meet).
 - meeting_password: (Optional) The meeting password.
 - bot_name: (Optional) Customize the name of the bot. Default is 'ChatterBox'.
 ### WebSocket Event Callbacks
