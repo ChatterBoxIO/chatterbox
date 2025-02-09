@@ -12,7 +12,7 @@ class ChatterBox {
         this.wsBaseUrl = config.wsBaseUrl || 'https://ws.chatter-box.io';
     }
 
-    async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox'}) {
+    async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox', webhookUrl}) {
         try {
             if (!platform || (typeof meeting_id !== 'string' && typeof meeting_id !== 'number') || String(meeting_id).trim() === '') {
                 throw new Error('Platform and meeting ID are required');
@@ -27,6 +27,7 @@ class ChatterBox {
                 meetingId: String(meeting_id),
                 meetingPassword: meeting_password || '',
                 botName: bot_name,
+                webhookUrl,
             };
 
             const response = await axios.post(`${this.apiBaseUrl}/join`, payload, {
