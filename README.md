@@ -60,6 +60,7 @@ startBot();
 - meeting_id: The ID of the meeting (numeric ID for Zoom, 'xxx-xxx-xxx' for Google Meet).
 - meeting_password: (Optional) The meeting password.
 - bot_name: (Optional) Customize the name of the bot. Default is 'ChatterBox'.
+- webhookUrl: (Optional) The webhook URL to send the meeting events to.
 ### WebSocket Event Callbacks
 - onMeetingStarted: Triggered when the meeting starts.
 - onMeetingFinished: Triggered when the meeting ends.
