@@ -12,6 +12,36 @@ class ChatterBox {
         this.wsBaseUrl = config.wsBaseUrl || 'https://ws.chatter-box.io';
     }
 
+    async getTemporaryToken(expiresIn = 3600) {
+        try {
+            if (expiresIn < 60 || expiresIn > 86400) {
+                throw new Error('Expiration time must be between 60 and 86400 seconds');
+            }
+
+            const response = await axios.post(`${this.apiBaseUrl}/token`, {
+                expiresIn
+            }, {
+                headers: {
+                    Authorization: `Bearer ${this.authorizationToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            return {
+                token: response.data.token,
+                expiresIn: response.data.expiresIn
+            };
+        } catch (error) {
+            if (error.response && error.response.data && error.response.data.message) {
+                throw new Error(error.response.data.message);
+            } else if (error.request) {
+                throw new Error('No response from server. Please check your network or try again later.');
+            } else {
+                throw new Error('Unexpected error: ' + error.message);
+            }
+        }
+    }
+
     async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox', webhook_url}) {
         try {
             if (!platform || (typeof meeting_id !== 'string' && typeof meeting_id !== 'number') || String(meeting_id).trim() === '') {

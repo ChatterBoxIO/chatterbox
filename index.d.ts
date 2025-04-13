@@ -12,8 +12,14 @@ declare module '@chatterboxio/bot' {
         bot_name?: string;
     }
 
+    export interface TemporaryTokenResponse {
+        token: string;
+        expiresIn: number;
+    }
+
     export function ChatterBox(config: ChatterBoxConfig): {
         sendBot: (options: SendBotOptions) => Promise<{ id: string }>;
+        getTemporaryToken: (expiresIn?: number) => Promise<TemporaryTokenResponse>;
         connectSocket: (
             sessionId: string,
             callbacks: {
