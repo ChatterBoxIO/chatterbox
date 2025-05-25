@@ -66,6 +66,8 @@ startBot();
 - meeting_password: (Optional) The meeting password.
 - bot_name: (Optional) Customize the name of the bot. Default is 'ChatterBox'.
 - webhook_url: (Optional) The webhook URL to send the meeting events to.
+- model: (Optional) The Deepgram model to use for transcription. Default is 'nova-3'.
+- language: (Optional) The language for transcription. Default is 'multi' for multi-language support.
 
 ### WebSocket Event Callbacks
 

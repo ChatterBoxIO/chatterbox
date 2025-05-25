@@ -1,12 +1,12 @@
 {
 	"name": "@chatterboxio/bot",
-	"version": "1.0.7",
+	"version": "1.1.0",
 	"description": "ChatterBox integration package",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/OverQuotaAI/chatterbox.git"
+		"url": "git+https://github.com/ChatterBoxIO/chatterbox.git"
 	},
 	"dependencies": {
 		"axios": "^1.8.4",
@@ -21,10 +21,10 @@
 		"meeting",
 		"transcript"
 	],
-	"author": "Alex Tsimbalistov <alex@overquota.ai>",
+	"author": "Alex Tsimbalistov <alex@chatter-box.io>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/OverQuotaAI/chatterbox/issues"
+		"url": "https://github.com/ChatterBoxIO/chatterbox/issues"
 	},
-	"homepage": "https://github.com/OverQuotaAI/chatterbox#readme"
+	"homepage": "https://github.com/ChatterBoxIO/chatterbox#readme"
 }
