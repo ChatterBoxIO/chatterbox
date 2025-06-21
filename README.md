@@ -4,7 +4,7 @@ The **ChatterBox Client** is an easy-to-use JavaScript/TypeScript package that a
 
 ## Features
 
-- **Send Bots to Meetings**: Easily deploy a bot to your video conferencing meetings. Currently, Zoom and Google Meet are supported.
+- **Send Bots to Meetings**: Easily deploy a bot to your video conferencing meetings. Currently, Zoom Google Meet, and Microsoft Teams are supported.
 - **Real-Time Transcription**: Receive live transcripts of ongoing meetings.
 - **WebSocket Integration**: Get real-time meeting events such as meeting start, finish, and transcript updates.
 - **Customizable**: Set your own bot names and optionally customize API and WebSocket base URLs.
@@ -61,9 +61,9 @@ startBot();
 
 ### Parameters for sendBot
 
-- platform: The platform to send the bot to ('zoom', 'googlemeet').
-- meeting_id: The ID of the meeting (numeric ID for Zoom, 'xxx-xxx-xxx' for Google Meet).
-- meeting_password: (Optional) The meeting password.
+- platform: The platform to send the bot to ('zoom', 'googlemeet', 'teams').
+- meeting_id: The ID of the meeting (numeric ID for Zoom or Microsoft Teams, 'xxx-xxx-xxx' for Google Meet).
+- meeting_password: (Optional) The meeting password or passcode.
 - bot_name: (Optional) Customize the name of the bot. Default is 'ChatterBox'.
 - webhook_url: (Optional) The webhook URL to send the meeting events to.
 - model: (Optional) The Deepgram model to use for transcription. Default is 'nova-3'.

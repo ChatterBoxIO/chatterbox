@@ -1,6 +1,6 @@
 {
 	"name": "@chatterboxio/bot",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "ChatterBox integration package",
 	"main": "index.js",
 	"types": "index.d.ts",
@@ -16,6 +16,7 @@
 		"ChatterBox",
 		"zoom",
 		"google meet",
+		"microsoft teams",
 		"gmeet",
 		"bot",
 		"meeting",
