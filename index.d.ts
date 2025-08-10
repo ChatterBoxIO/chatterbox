@@ -10,6 +10,10 @@ declare module '@chatterboxio/bot' {
         meeting_id: string;
         meeting_password?: string;
         bot_name?: string;
+        webhook_url?: string;
+        model?: string;
+        language?: string;
+        noTranscriptTimeoutSeconds?: number;
     }
 
     export interface TemporaryTokenResponse {

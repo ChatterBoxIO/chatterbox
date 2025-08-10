@@ -68,6 +68,7 @@ startBot();
 - webhook_url: (Optional) The webhook URL to send the meeting events to.
 - model: (Optional) The Deepgram model to use for transcription. Default is 'nova-3'.
 - language: (Optional) The language for transcription. Default is 'multi' for multi-language support.
+- noTranscriptTimeoutSeconds: (Optional) If provided, the bot will automatically leave the session after this many seconds without receiving any transcript. Must be a number.
 
 ### WebSocket Event Callbacks
 

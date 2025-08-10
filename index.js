@@ -42,7 +42,7 @@ class ChatterBox {
         }
     }
 
-    async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox', webhook_url, model = 'nova-3', language = 'multi'}) {
+    async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox', webhook_url, model = 'nova-3', language = 'multi', noTranscriptTimeoutSeconds}) {
         try {
             if (!platform || (typeof meeting_id !== 'string' && typeof meeting_id !== 'number') || String(meeting_id).trim() === '') {
                 throw new Error('Platform and meeting ID are required');
@@ -50,6 +50,10 @@ class ChatterBox {
 
             if (!this.authorizationToken) {
                 throw new Error('Authorization token is missing or invalid');
+            }
+
+            if (noTranscriptTimeoutSeconds !== undefined && typeof noTranscriptTimeoutSeconds !== 'number') {
+                throw new Error('noTranscriptTimeoutSeconds must be a number when provided');
             }
 
             const payload = {
@@ -61,6 +65,10 @@ class ChatterBox {
                 model,
                 language
             };
+
+            if (noTranscriptTimeoutSeconds !== undefined) {
+                payload.noTranscriptTimeoutSeconds = noTranscriptTimeoutSeconds;
+            }
 
             const response = await axios.post(`${this.apiBaseUrl}/join`, payload, {
                 headers: {
