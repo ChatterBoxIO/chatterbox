@@ -38,6 +38,8 @@ async function startBot() {
       meeting_id: "1234567890",
       meeting_password: "your-meeting-password",
       bot_name: "MyCustomBot", // Optional bot name
+      noTranscriptTimeoutSeconds: 30, // Leave after 30 seconds without transcript
+      noParticipantsLeftTimeoutSeconds: 10, // Leave after 10 seconds when only bot remains
     });
 
     console.log("Bot started, session ID:", id);
@@ -69,6 +71,7 @@ startBot();
 - model: (Optional) The Deepgram model to use for transcription. Default is 'nova-3'.
 - language: (Optional) The language for transcription. Default is 'multi' for multi-language support.
 - noTranscriptTimeoutSeconds: (Optional) If provided, the bot will automatically leave the session after this many seconds without receiving any transcript. Must be a number.
+- noParticipantsLeftTimeoutSeconds: (Optional) The number of seconds to wait before leaving once the bot detects it is the only participant remaining. Defaults to 5 seconds. Must be a number.
 
 ### WebSocket Event Callbacks
 

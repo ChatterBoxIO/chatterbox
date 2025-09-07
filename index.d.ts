@@ -14,6 +14,7 @@ declare module '@chatterboxio/bot' {
         model?: string;
         language?: string;
         noTranscriptTimeoutSeconds?: number;
+        noParticipantsLeftTimeoutSeconds?: number;
     }
 
     export interface TemporaryTokenResponse {

@@ -42,7 +42,7 @@ class ChatterBox {
         }
     }
 
-    async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox', webhook_url, model = 'nova-3', language = 'multi', noTranscriptTimeoutSeconds}) {
+    async sendBot({platform, meeting_id, meeting_password, bot_name = 'ChatterBox', webhook_url, model = 'nova-3', language = 'multi', noTranscriptTimeoutSeconds, noParticipantsLeftTimeoutSeconds}) {
         try {
             if (!platform || (typeof meeting_id !== 'string' && typeof meeting_id !== 'number') || String(meeting_id).trim() === '') {
                 throw new Error('Platform and meeting ID are required');
@@ -54,6 +54,10 @@ class ChatterBox {
 
             if (noTranscriptTimeoutSeconds !== undefined && typeof noTranscriptTimeoutSeconds !== 'number') {
                 throw new Error('noTranscriptTimeoutSeconds must be a number when provided');
+            }
+
+            if (noParticipantsLeftTimeoutSeconds !== undefined && typeof noParticipantsLeftTimeoutSeconds !== 'number') {
+                throw new Error('noParticipantsLeftTimeoutSeconds must be a number when provided');
             }
 
             const payload = {
@@ -68,6 +72,10 @@ class ChatterBox {
 
             if (noTranscriptTimeoutSeconds !== undefined) {
                 payload.noTranscriptTimeoutSeconds = noTranscriptTimeoutSeconds;
+            }
+
+            if (noParticipantsLeftTimeoutSeconds !== undefined) {
+                payload.noParticipantsLeftTimeoutSeconds = noParticipantsLeftTimeoutSeconds;
             }
 
             const response = await axios.post(`${this.apiBaseUrl}/join`, payload, {
